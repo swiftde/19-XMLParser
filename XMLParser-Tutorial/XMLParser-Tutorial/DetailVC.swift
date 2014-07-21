@@ -10,7 +10,7 @@ import UIKit
 
 class DetailVC: UIViewController {
 
-    @IBOutlet var webView: UIWebView
+    @IBOutlet var webView: UIWebView?
     var url: NSURL?
     var titleString: String?
     
@@ -20,7 +20,7 @@ class DetailVC: UIViewController {
         }
         if url {
             let request = NSURLRequest(URL: url!)
-            webView.loadRequest(request)
+            webView?.loadRequest(request)
         }
     }
     
