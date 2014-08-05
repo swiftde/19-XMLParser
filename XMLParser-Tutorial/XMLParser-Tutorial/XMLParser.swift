@@ -83,14 +83,14 @@ class XMLParser: NSObject, NSXMLParserDelegate {
     func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
         if elementName == "item" {
             inItem = false
-            objects += object
+            objects.append(object)
         }
     }
     
     func parserDidEndDocument(parser: NSXMLParser!) {
         dispatch_async(dispatch_get_main_queue()) {
             // MAIN QUEUE
-            if self.handler {
+            if self.handler != nil {
                 self.handler!()
             }
         }

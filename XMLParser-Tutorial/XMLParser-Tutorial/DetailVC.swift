@@ -15,10 +15,10 @@ class DetailVC: UIViewController {
     var titleString: String?
     
     override func viewDidLoad() {
-        if titleString {
+        if titleString != nil {
             title = titleString!
         }
-        if url {
+        if url != nil {
             let request = NSURLRequest(URL: url!)
             webView?.loadRequest(request)
         }
