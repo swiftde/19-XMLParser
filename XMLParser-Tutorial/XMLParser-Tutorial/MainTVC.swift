@@ -49,7 +49,7 @@ class MainTVC: UITableViewController, XMLParserDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if segue.identifier == "detail" {
-            (segue.destinationViewController as DetailVC).url = NSURL(string: parser.objects[tableView.indexPathForCell(sender as UITableViewCell).row]["link"])
+            (segue.destinationViewController as DetailVC).url = NSURL(string: parser.objects[tableView.indexPathForCell(sender as UITableViewCell).row]["link"]!)
             (segue.destinationViewController as DetailVC).titleString = parser.objects[tableView.indexPathForCell(sender as UITableViewCell).row]["title"]
         }
     }
