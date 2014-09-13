@@ -27,30 +27,30 @@ class MainTVC: UITableViewController, XMLParserDelegate {
         println(error)
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parser.objects.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
-        cell.textLabel.text = parser.objects[indexPath.row]["title"]
-        cell.textLabel.numberOfLines = 3
-        cell.textLabel.lineBreakMode = .ByWordWrapping
-        cell.textLabel.textColor = UIColor.blueColor()
-        cell.detailTextLabel.text = parser.objects[indexPath.row]["description"]
-        cell.detailTextLabel.numberOfLines = 2
-        cell.detailTextLabel.lineBreakMode = .ByWordWrapping
+        cell.textLabel?.text = parser.objects[indexPath.row]["title"]
+        cell.textLabel?.numberOfLines = 3
+        cell.textLabel?.lineBreakMode = .ByWordWrapping
+        cell.textLabel?.textColor = UIColor.blueColor()
+        cell.detailTextLabel?.text = parser.objects[indexPath.row]["description"]
+        cell.detailTextLabel?.numberOfLines = 2
+        cell.detailTextLabel?.lineBreakMode = .ByWordWrapping
         return cell
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 120
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "detail" {
-            (segue.destinationViewController as DetailVC).url = NSURL(string: parser.objects[tableView.indexPathForCell(sender as UITableViewCell).row]["link"]!)
-            (segue.destinationViewController as DetailVC).titleString = parser.objects[tableView.indexPathForCell(sender as UITableViewCell).row]["title"]
+            (segue.destinationViewController as DetailVC).url = NSURL(string: parser.objects[tableView.indexPathForCell(sender as UITableViewCell)!.row]["link"]!)
+            (segue.destinationViewController as DetailVC).titleString = parser.objects[tableView.indexPathForCell(sender as UITableViewCell)!.row]["title"]
         }
     }
 
