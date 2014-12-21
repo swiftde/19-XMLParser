@@ -8,7 +8,7 @@
 
 import UIKit
 
-let kURL = NSURL(string: "http://www.stern.de/feed/standard/all/")
+let kURL = NSURL(string: "http://www.stern.de/feed/standard/all/")!
 
 class MainTVC: UITableViewController, XMLParserDelegate {
     
